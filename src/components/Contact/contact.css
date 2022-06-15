@@ -1,0 +1,10 @@
+.contact-user {
+  margin: 20px 0;
+  overflow-y: scroll;
+  height: 80vh;
+}
+.user-view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
