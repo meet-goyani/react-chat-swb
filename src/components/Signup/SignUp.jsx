@@ -1,16 +1,6 @@
 import React from "react";
 import image from "../../assets/images/SignUp.jpg";
-import {
-  Card,
-  Row,
-  Col,
-  Form,
-  Input,
-  Button,
-  Typography,
-  Divider,
-  InputNumber,
-} from "antd";
+import {Card,Row, Col,Form, Input,Button,Typography,Divider,InputNumber} from "antd";
 import { GoogleSquareFilled, FacebookOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import { Link } from "react-router-dom";
@@ -51,9 +41,9 @@ const SignUp = () => {
             >
               <Typography style={{ textAlign: "center", marginTop: "2px" }}>
                 <Title>Sign Up</Title>
-                <Text>
+                <Text style={{ fontSize: "18px" }}>
                   Already have an account ? &nbsp;
-                  <Link to="/SignIn">Sign In</Link>
+                  <Link to="/signin">Sign In</Link>
                 </Text>
               </Typography>
 
@@ -116,9 +106,13 @@ const SignUp = () => {
                     },
                   ]}
                 >
-                   <InputNumber
-                style={{ width: "100%" ,borderRadius: "8px", padding: "3px"}}
-                placeholder="Enter Your Phone Number"
+                  <InputNumber
+                    style={{
+                      width: "100%",
+                      borderRadius: "8px",
+                      padding: "3px",
+                    }}
+                    placeholder="Enter Your Phone Number"
                   />
                 </Form.Item>
                 <Row

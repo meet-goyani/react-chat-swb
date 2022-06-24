@@ -36,9 +36,9 @@ const SignIn = () => {
             >
               <Typography style={{ textAlign: "center", marginTop: "5px" }}>
                 <Title>Sign In</Title>
-                <Text>
+                <Text style={{fontSize:"18px"}}>
                   Doesn't have an account yet? &nbsp;
-                  <Link to="/SignUp">Sign Up</Link>
+                  <Link to="/signup">Sign Up</Link>
                 </Text>
               </Typography>
 
@@ -112,7 +112,7 @@ const SignIn = () => {
                   </Button>
                   &nbsp;
                   <div style={{ textAlign: "center" }}>
-                    <Link to="/Forgot Password">Forgot Password ?</Link>
+                    <Link to="/forgotpassword">Forgot Password ?</Link>
                   </div>
                 </Form.Item>
                 <Divider style={{ borderWidth: 2, borderColor: "grey" }}>
