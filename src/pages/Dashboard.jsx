@@ -1,7 +1,16 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Layout, Avatar, Typography, Form, Button, Input } from "antd";
-import { SendOutlined, SmileOutlined } from "@ant-design/icons";
+import {
+  Layout,
+  Avatar,
+  Typography,
+  Form,
+  Button,
+  Input,
+  Dropdown,
+  Menu,
+} from "antd";
+import { SendOutlined, SmileOutlined, MoreOutlined } from "@ant-design/icons";
 import { Content } from "antd/lib/layout/layout";
 import userImg2 from "../assets/images/user2.jpg";
 import Bookmark from "../components/Bookmark";
@@ -14,6 +23,20 @@ import "./dashboard.css";
 import Message from "../components/message/Message";
 const { Title } = Typography;
 export default function Dashboard() {
+  const menu = (
+    <Menu
+      items={[
+        {
+          key: "1",
+          label: <a target="_blank">Profile</a>,
+        },
+        {
+          key: "2",
+          label: <a target="_blank">Delete</a>,
+        },
+      ]}
+    />
+  );
   return (
     <>
       <Layout>
@@ -32,14 +55,27 @@ export default function Dashboard() {
             <Content>
               <div className="chat-section">
                 <div className="chat-header">
-                  <div className="header-user">
+                  <div className="header-left">
                     <Avatar size={50} src={userImg2} />
                     <Title style={{ marginLeft: "10px" }} level={5}>
                       Mark
                     </Title>
                   </div>
+                  <div className="header-right">
+                    <Dropdown overlay={menu} placement="bottom">
+                      <Button type="primary" ghost>
+                        <MoreOutlined />
+                      </Button>
+                    </Dropdown>
+                  </div>
                 </div>
                 <div className="message-section">
+                  <Message />
+                  <Message own={true} />
+                  <Message />
+                  <Message own={true} />
+                  <Message />
+                  <Message own={true} />
                   <Message />
                   <Message own={true} />
                 </div>

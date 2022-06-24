@@ -25,6 +25,9 @@
   margin: 18px 0;
 }
 .btn:hover {
+  background-color: rgb(51, 84, 175) !important;
+}
+.btn:hover.active {
   background-color: rgba(43, 53, 194, 0.945) !important;
 }
 .content {
@@ -63,7 +66,12 @@
   border-top: 2px solid rgba(190, 187, 187, 0.637);
   overflow: hidden;
 }
-.header-user {
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-left {
   display: flex;
   align-items: center;
 }
