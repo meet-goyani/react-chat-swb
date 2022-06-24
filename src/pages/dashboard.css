@@ -46,7 +46,7 @@
   /* background-color: rgb(193, 209, 223); */
 }
 .chat-header {
-  padding: 15px 20px;
+  padding: 10px 15px;
   background: rgba(255, 255, 255, 0);
   /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
   backdrop-filter: blur(2px);
@@ -66,4 +66,8 @@
 .header-user {
   display: flex;
   align-items: center;
+}
+.message-section {
+  overflow-y: scroll;
+  padding: 0 5px;
 }

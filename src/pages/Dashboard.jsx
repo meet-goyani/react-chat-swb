@@ -5,12 +5,13 @@ import { SendOutlined, SmileOutlined } from "@ant-design/icons";
 import { Content } from "antd/lib/layout/layout";
 import userImg2 from "../assets/images/user2.jpg";
 import Bookmark from "../components/Bookmark";
-import Chat from "../components/Chat/Chat";
 import Contact from "../components/Contact/Contact";
+import ChatUser from "../components/ChatUser/ChatUser";
 import Navbar from "../components/Navbar/Navbar";
 import Setting from "../components/Setting";
 import UserProfile from "../components/UserProfile/UserProfile";
 import "./dashboard.css";
+import Message from "../components/message/Message";
 const { Title } = Typography;
 export default function Dashboard() {
   return (
@@ -22,7 +23,7 @@ export default function Dashboard() {
             <div className="sidebar">
               <Routes>
                 <Route path="/profile" element={<UserProfile />} />
-                <Route path="/" element={<Chat />} />
+                <Route path="/" element={<ChatUser />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/bookmark" element={<Bookmark />} />
                 <Route path="/setting" element={<Setting />} />
@@ -39,10 +40,8 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div className="message-section">
-                  <p>hello</p>
-                  <p>hello</p>
-                  <p>hello</p>
-                  <p>hello</p>
+                  <Message />
+                  <Message own={true} />
                 </div>
                 <div className="chat-footer">
                   <Form

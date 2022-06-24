@@ -25,6 +25,7 @@ export default function UserProfile() {
             <Image
               style={{
                 borderRadius: "50%",
+                objectFit: "cover",
                 WebkitBoxShadow: "0px 0px 34px 12px rgba(86,87,87,0.25)",
                 MozBoxShadow: "0px 0px 34px 12px  rgba(86,87,87,0.25)",
                 boxShadow: " 0px 0px 34px 12px  rgba(86,87,87,0.25)",

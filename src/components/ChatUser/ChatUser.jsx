@@ -1,5 +1,5 @@
 import React from "react";
-import "../Chat/chat.css";
+import "./chat.css";
 import userImg2 from "../../assets/images/user2.jpg";
 import userImg3 from "../../assets/images/user3.jpg";
 import userImg4 from "../../assets/images/user4.jpg";
@@ -8,7 +8,7 @@ import { Typography, Button, Input, Tooltip } from "antd";
 import { PlusCircleOutlined, SearchOutlined } from "@ant-design/icons";
 import User from "./User";
 const { Title } = Typography;
-export default function Chat() {
+export default function ChatUser() {
   return (
     <>
       <div className="chat">

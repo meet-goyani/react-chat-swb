@@ -44,48 +44,49 @@ export default function Setting() {
               <EditOutlined />
             </Button>
           </Tooltip>
-          <Modal
-            title="Edit Profile"
-            visible={visible}
-            onOk={handleUpdate}
-            onCancel={handleCancel}
-            footer={[
-              <Button onClick={handleCancel}>Cancle</Button>,
-              <Button
-                key="submit"
-                type="primary"
-                loading={confirmLoading}
-                onClick={handleUpdate}
-              >
-                Update
-              </Button>,
-            ]}
-          >
-            <Form layout="vertical">
-              <Form.Item label="Name:">
-                <Input placeholder="Enter Name" />
-              </Form.Item>
-              <Form.Item label="About Me">
-                <Input placeholder="Write Something" />
-              </Form.Item>
-              <Form.Item label="City">
-                <Input placeholder="City" />
-              </Form.Item>
-              <Form.Item label="Mobile No.:">
-                <Input placeholder="(+91) 9180527560" />
-              </Form.Item>
-              <Form.Item label="Email">
-                <Input placeholder="example@gmail.com" />
-              </Form.Item>
-            </Form>
-          </Modal>
         </div>
+        <Modal
+          title="Edit Profile"
+          visible={visible}
+          onOk={handleUpdate}
+          onCancel={handleCancel}
+          footer={[
+            <Button onClick={handleCancel}>Cancle</Button>,
+            <Button
+              key="submit"
+              type="primary"
+              loading={confirmLoading}
+              onClick={handleUpdate}
+            >
+              Update
+            </Button>,
+          ]}
+        >
+          <Form layout="vertical">
+            <Form.Item label="Name:">
+              <Input placeholder="Enter Name" />
+            </Form.Item>
+            <Form.Item label="About Me">
+              <Input placeholder="Write Something" />
+            </Form.Item>
+            <Form.Item label="City">
+              <Input placeholder="City" />
+            </Form.Item>
+            <Form.Item label="Mobile No.:">
+              <Input placeholder="(+91) 9180527560" />
+            </Form.Item>
+            <Form.Item label="Email">
+              <Input placeholder="example@gmail.com" />
+            </Form.Item>
+          </Form>
+        </Modal>
         <div className="profile">
           <div className="user-img">
             <Image
               alt="avatar"
               style={{
                 borderRadius: "50%",
+                objectFit: "cover",
                 WebkitBoxShadow: "0px 0px 34px 12px rgba(86,87,87,0.25)",
                 MozBoxShadow: "0px 0px 34px 12px  rgba(86,87,87,0.25)",
                 boxShadow: " 0px 0px 34px 12px  rgba(86,87,87,0.25)",
