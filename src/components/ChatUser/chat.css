@@ -1,0 +1,38 @@
+.hedding {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search {
+  margin: 15px 0;
+}
+.user-search {
+  border-radius: 10px;
+}
+.chat-user {
+  margin: 20px 0;
+  overflow-y: scroll;
+  height: 80vh;
+}
+.user {
+  display: flex;
+  align-items: center;
+}
+.ant-divider-horizontal {
+  margin: 10px 0 !important;
+}
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* box-shadow: 0 0 5px rgb(190, 187, 187); */
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(169, 169, 175);
+  border-radius: 20px;
+}
