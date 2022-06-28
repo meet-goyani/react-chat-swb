@@ -1,16 +1,18 @@
 import React from "react";
 import userImg from "../../assets/images/user1.jpg";
 import logo from "../../assets/images/chatcoin-chat-logo.svg";
-import { Avatar, Tooltip } from "antd";
-
+import { Avatar, Popover, Typography } from "antd";
 import {
   UserOutlined,
   WechatOutlined,
   ContactsOutlined,
   SettingOutlined,
   BookOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
 import NavButton from "./NavButton";
+
+const { Text } = Typography;
 
 export default function Navbar() {
   return (
@@ -64,9 +66,24 @@ export default function Navbar() {
             title="Setting"
           />
         </div>
-        <Tooltip placement="right" title="Profile">
-          <Avatar size={45} src={userImg} />
-        </Tooltip>
+        <Popover
+          trigger="click"
+          placement="rightBottom"
+          content={
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <LogoutOutlined style={{ fontSize: "15px" }} />
+              <Text style={{ fontSize: "15px", marginLeft: "8px" }}>
+                Logout
+              </Text>
+            </div>
+          }
+        >
+          <Avatar
+            style={{ border: "2px solid #377FFC" }}
+            size={45}
+            src={userImg}
+          />
+        </Popover>
       </div>
     </>
   );

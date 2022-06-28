@@ -1,4 +1,14 @@
 import React from "react";
+import { Content } from "antd/lib/layout/layout";
+import userImg2 from "../assets/images/user2.jpg";
+import Bookmark from "../components/Bookmark";
+import Contact from "../components/Contact/Contact";
+import ChatUser from "../components/ChatUser/ChatUser";
+import Navbar from "../components/Navbar/Navbar";
+import Setting from "../components/Setting";
+import UserProfile from "../components/UserProfile/UserProfile";
+import "./dashboard.css";
+import Message from "../components/message/Message";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   Layout,
@@ -10,33 +20,16 @@ import {
   Dropdown,
   Menu,
 } from "antd";
-import { SendOutlined, SmileOutlined, MoreOutlined } from "@ant-design/icons";
-import { Content } from "antd/lib/layout/layout";
-import userImg2 from "../assets/images/user2.jpg";
-import Bookmark from "../components/Bookmark";
-import Contact from "../components/Contact/Contact";
-import ChatUser from "../components/ChatUser/ChatUser";
-import Navbar from "../components/Navbar/Navbar";
-import Setting from "../components/Setting";
-import UserProfile from "../components/UserProfile/UserProfile";
-import "./dashboard.css";
-import Message from "../components/message/Message";
+import {
+  SendOutlined,
+  SmileOutlined,
+  MoreOutlined,
+  DeleteOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 const { Title } = Typography;
+
 export default function Dashboard() {
-  const menu = (
-    <Menu
-      items={[
-        {
-          key: "1",
-          label: <a target="_blank">Profile</a>,
-        },
-        {
-          key: "2",
-          label: <a target="_blank">Delete</a>,
-        },
-      ]}
-    />
-  );
   return (
     <>
       <Layout>
@@ -62,9 +55,53 @@ export default function Dashboard() {
                     </Title>
                   </div>
                   <div className="header-right">
-                    <Dropdown overlay={menu} placement="bottom">
+                    <Dropdown
+                      overlay={
+                        <Menu
+                          items={[
+                            {
+                              label: (
+                                <>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      fontSize: "14px",
+                                    }}
+                                  >
+                                    <UserOutlined
+                                      style={{ fontSize: "14px" }}
+                                    />
+                                    <a target="_blank">Profile</a>
+                                  </div>
+                                </>
+                              ),
+                            },
+                            {
+                              label: (
+                                <>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      fontSize: "14px",
+                                    }}
+                                  >
+                                    <DeleteOutlined
+                                      style={{ fontSize: "14px" }}
+                                    />
+                                    <a target="_blank">Delete</a>
+                                  </div>
+                                </>
+                              ),
+                            },
+                          ]}
+                        />
+                      }
+                      placement="bottom"
+                    >
                       <Button type="primary" ghost>
-                        <MoreOutlined />
+                        <MoreOutlined style={{ fontSize: "15px" }} />
                       </Button>
                     </Dropdown>
                   </div>
