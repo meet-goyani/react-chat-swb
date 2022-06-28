@@ -6,4 +6,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-y: hidden;
+  background-image: linear-gradient(to right top, #39447a, #3b508e, #3b5da3, #376bb8, #2e79cd, #2c82d8, #2a8ae4, #2693ef, #3597f3, #419cf7, #4ba0fb, #55a5ff);
+    /* background-color: #89d4cf;
+    background-image: linear-gradient(315deg, #89d4cf 0%, #6e45e1 74%); */
+    /* background: linear-gradient(315deg, #045de9 0%, #09c6f9 100%) no-repeat;
+    background-attachment: fixed; */
+    /* overflow-y: hidden; */
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
