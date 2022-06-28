@@ -6,7 +6,7 @@ export default function NavButton({ to, title, icon }) {
     <>
       <Link to={to}>
         <Tooltip placement="right" title={title}>
-          <Button size="large" className="btn" icon={icon} type="text" />
+          <Button size="large" className={"btn"} icon={icon} type="text" />
         </Tooltip>
       </Link>
     </>

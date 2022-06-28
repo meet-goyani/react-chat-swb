@@ -2,18 +2,31 @@ import React, { useState } from "react";
 import "./contact.css";
 import userImg2 from "../../assets/images/user2.jpg";
 
-import { Typography, Input, Avatar, Divider, Drawer, Image } from "antd";
+import {
+  Typography,
+  Input,
+  Avatar,
+  Divider,
+  Drawer,
+  Image,
+  Popconfirm,
+  message,
+} from "antd";
 import {
   SearchOutlined,
   MessageOutlined,
   HomeOutlined,
   MobileOutlined,
   MailOutlined,
+  DeleteOutlined,
 } from "@ant-design/icons";
 const { Title, Text } = Typography;
 export default function Chat() {
   const [visible, setVisible] = useState(false);
 
+  const confirm = () => {
+    message.success("Deleted Successfully", 2);
+  };
   const showDrawer = () => {
     setVisible(true);
   };
@@ -58,6 +71,7 @@ export default function Chat() {
                 <Image
                   style={{
                     borderRadius: "50%",
+                    objectFit: "cover",
                     WebkitBoxShadow: "0px 0px 34px 12px rgba(86,87,87,0.25)",
                     MozBoxShadow: "0px 0px 34px 12px  rgba(86,87,87,0.25)",
                     boxShadow: " 0px 0px 34px 12px  rgba(86,87,87,0.25)",
@@ -70,7 +84,26 @@ export default function Chat() {
                 <Title style={{ marginTop: "10px" }} level={4}>
                   Mark
                 </Title>
-                <MessageOutlined style={{ fontSize: "25px" }} />
+                <div className="action">
+                  <MessageOutlined
+                    style={{ fontSize: "25px", color: "#3061E5" }}
+                  />
+                  <Popconfirm
+                    placement="bottom"
+                    title="Are you sure to delete this contact ?"
+                    onConfirm={confirm}
+                    okText="Yes"
+                    cancelText="No"
+                  >
+                    <DeleteOutlined
+                      style={{
+                        fontSize: "25px",
+                        marginLeft: "8px",
+                        color: "#E82E2E",
+                      }}
+                    />
+                  </Popconfirm>
+                </div>
               </div>
               <div className="user-about">
                 <Title level={5}>About</Title>

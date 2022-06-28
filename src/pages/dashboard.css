@@ -25,9 +25,6 @@
   margin: 18px 0;
 }
 .btn:hover {
-  background-color: rgb(51, 84, 175) !important;
-}
-.btn:hover.active {
   background-color: rgba(43, 53, 194, 0.945) !important;
 }
 .content {
@@ -49,10 +46,10 @@
   /* background-color: rgb(193, 209, 223); */
 }
 .chat-header {
-  padding: 10px 15px;
+  padding: 10px 20px;
   background: rgba(255, 255, 255, 0);
   /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(2px);
   border-bottom: 2px solid rgba(190, 187, 187, 0.637);
   overflow: hidden;
@@ -62,7 +59,7 @@
   background: rgba(255, 255, 255, 0);
   /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
   backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(3px);
   border-top: 2px solid rgba(190, 187, 187, 0.637);
   overflow: hidden;
 }
