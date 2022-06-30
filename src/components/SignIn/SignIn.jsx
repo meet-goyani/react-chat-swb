@@ -4,6 +4,7 @@ import { Card, Row, Col, Form, Input, Button, Typography, Divider } from "antd";
 import { GoogleSquareFilled, FacebookOutlined } from "@ant-design/icons";
 import "./SignIn.css";
 import { Link } from "react-router-dom";
+import Dashboard from "../../pages/Dashboard";
 
 const SignIn = () => {
   const onFinish = (values) => {
@@ -35,7 +36,7 @@ const SignIn = () => {
             >
               <Typography style={{ textAlign: "center", marginTop: "5px" }}>
                 <Title>Sign In</Title>
-                <Text style={{fontSize:"18px"}}>
+                <Text style={{ fontSize: "18px" }}>
                   Doesn't have an account yet? &nbsp;
                   <Link to="/signup">Sign Up</Link>
                 </Text>
@@ -107,12 +108,9 @@ const SignIn = () => {
                       color: "white",
                     }}
                   >
-                    <Link to="/dashboard">
-                    Sign Up
-                    </Link>
+                    <Link to="/dashboard">Sign In</Link>
                   </Button>
                   &nbsp;
-
                   <div style={{ textAlign: "center" }}>
                     <Link to="/forgotpassword">Forgot Password ?</Link>
                   </div>
@@ -161,7 +159,6 @@ const SignIn = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
-                
               }}
             >
               <img
@@ -177,5 +174,4 @@ const SignIn = () => {
     </div>
   );
 };
-
 export default SignIn;

@@ -7,10 +7,12 @@ import userImg5 from "../../assets/images/user5.jpg";
 import { Typography, Button, Input, Tooltip } from "antd";
 import { PlusCircleOutlined, SearchOutlined } from "@ant-design/icons";
 import User from "./User";
+
 const { Title } = Typography;
 export default function ChatUser() {
   return (
     <>
+    
       <div className="chat">
         <div className="hedding">
           <Title level={3}>Chat</Title>

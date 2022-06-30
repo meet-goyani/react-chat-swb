@@ -1,7 +1,8 @@
 import React from "react";
 import userImg from "../../assets/images/user1.jpg";
 import logo from "../../assets/images/chatcoin-chat-logo.svg";
-import { Avatar, Popover, Typography } from "antd";
+import { Avatar, Popover, Typography, Tooltip, Button } from "antd";
+
 import {
   UserOutlined,
   WechatOutlined,
@@ -11,6 +12,7 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 import NavButton from "./NavButton";
+import { Link } from "react-router-dom";
 
 const { Text } = Typography;
 
@@ -20,14 +22,84 @@ export default function Navbar() {
       <div className="navbar">
         <Avatar size={45} src={logo} />
         <div className="nav-btn">
-          <NavButton
+          <Link to="/dashboard/profile">
+            <Tooltip placement="right" title="">
+              <Button
+                size="large"
+                className={"btn"}
+                icon={
+                  <UserOutlined
+                    style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
+                  />
+                }
+                type="text"
+              />
+            </Tooltip>
+          </Link>
+          <Link to="/dashboard/chat">
+            <Tooltip placement="right" title="">
+              <Button
+                size="large"
+                className={"btn"}
+                icon={
+                  <UserOutlined
+                    style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
+                  />
+                }
+                type="text"
+              />
+            </Tooltip>
+          </Link>
+          <Link to="/dashboard/contact">
+            <Tooltip placement="right" title="">
+              <Button
+                size="large"
+                className={"btn"}
+                icon={
+                  <UserOutlined
+                    style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
+                  />
+                }
+                type="text"
+              />
+            </Tooltip>
+          </Link>
+          <Link to="/dashboard/bookmark">
+            <Tooltip placement="right" title="">
+              <Button
+                size="large"
+                className={"btn"}
+                icon={
+                  <UserOutlined
+                    style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
+                  />
+                }
+                type="text"
+              />
+            </Tooltip>
+          </Link>
+          <Link to="/dashboard/setting">
+            <Tooltip placement="right" title="">
+              <Button
+                size="large"
+                className={"btn"}
+                icon={
+                  <UserOutlined
+                    style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
+                  />
+                }
+                type="text"
+              />
+            </Tooltip>
+          </Link>
+          {/* <NavButton
             icon={
               <UserOutlined
                 style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
               />
             }
-            to="/profile"
-            title="Profile"
+            to="/dashboard/profile"
+            title="/dashboard/profile"
           />
           <NavButton
             icon={
@@ -35,7 +107,7 @@ export default function Navbar() {
                 style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
               />
             }
-            to="/"
+            to="/dashboard/chat"
             title="Chat"
           />
           <NavButton
@@ -44,7 +116,7 @@ export default function Navbar() {
                 style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
               />
             }
-            to="/contact"
+            to="/dashboard/contact"
             title="Contact"
           />
           <NavButton
@@ -53,7 +125,7 @@ export default function Navbar() {
                 style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
               />
             }
-            to="/bookmark"
+            to="/dashboard/bookmark"
             title="Bookmark"
           />
           <NavButton
@@ -62,9 +134,9 @@ export default function Navbar() {
                 style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
               />
             }
-            to="/setting"
+            to="/dashboard/setting"
             title="Setting"
-          />
+          /> */}
         </div>
         <Popover
           trigger="click"

@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Row, Col, Form, Input, Button, Typography } from "antd";
 import { Link } from "react-router-dom";
 import image from "../../assets/images/ResetPassword.jpg";
-import { ArrowLeftOutlined,LockTwoTone  } from "@ant-design/icons";
+import { ArrowLeftOutlined, LockTwoTone } from "@ant-design/icons";
 
 const ResetPassword = () => {
   const { Title, Text } = Typography;
@@ -36,7 +36,7 @@ const ResetPassword = () => {
                 <Title>Reset Your Password ?</Title>
                 <Text style={{ fontSize: "18px" }}>
                   Set Your New Password &nbsp;
-                  <LockTwoTone />
+                  <LockTwoTone style={{ fontSize: "20px" }} />
                 </Text>
               </Typography>
 
@@ -115,8 +115,7 @@ const ResetPassword = () => {
               </Form>
             </Col>
             <Col span={12}>
-              <img src={image}
-                style={{ width: "100%", height: "100%" }} />
+              <img src={image} style={{ width: "100%", height: "100%" }} />
             </Col>
           </Row>
         </div>
