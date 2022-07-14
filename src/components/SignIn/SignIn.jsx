@@ -3,13 +3,37 @@ import image from "../../assets/images/login.svg";
 import { Card, Row, Col, Form, Input, Button, Typography, Divider } from "antd";
 import { GoogleSquareFilled, FacebookOutlined } from "@ant-design/icons";
 import "./SignIn.css";
-import { Link } from "react-router-dom";
-import Dashboard from "../../pages/Dashboard";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { ad } from "../../firebase";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-  const onFinish = (values) => {
+  const navigate = useNavigate();
+  
+  const onFinish = async (values) => {
     console.log("Success:", values);
+    const docRef = query(
+      collection(ad, "user"),
+
+      where("Email", "==", values?.Email),
+      where("Password", "==", values?.Password)
+    );
+    const docsSnap = await getDocs(docRef);
+
+    if (docsSnap?.docs.length > 0) {
+      //localStorage.clear();
+      alert("Welcome Back");
+      // authenticate(true);
+      const details = docsSnap?.docs[0]?._document.data.value.mapValue.fields;
+      localStorage.setItem("userdetails", JSON.stringify(details));
+      navigate("/dashboard");
+      
+    } else {
+      alert("Please Sign Up First");
+    }
   };
+ 
+  
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -18,7 +42,7 @@ const SignIn = () => {
   return (
     <div>
       <Card
-        className="chat_form_card"
+        className=" "
         bordered={true}
         style={{
           height: 600,
@@ -108,8 +132,8 @@ const SignIn = () => {
                       color: "white",
                     }}
                   >
-                    <Link to="/dashboard">Sign In</Link>
-                  </Button>
+                    Sign In
+                 </Button>
                   &nbsp;
                   <div style={{ textAlign: "center" }}>
                     <Link to="/forgotpassword">Forgot Password ?</Link>
@@ -139,7 +163,7 @@ const SignIn = () => {
                   <Button
                     type="primary"
                     size="large"
-                    style={{
+                    style={{                                                  
                       textAlign: "center",
                       borderRadius: "8px",
                       color: "white",

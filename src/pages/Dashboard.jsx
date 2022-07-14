@@ -4,7 +4,12 @@ import userImg2 from "../assets/images/user2.jpg";
 import Navbar from "../components/Navbar/Navbar";
 import "./dashboard.css";
 import Message from "../components/message/Message";
-import { Routes, Route, Link } from "react-router-dom";
+import Bookmark from "../components/Bookmark";
+import Contact from "../components/Contact/Contact";
+import UserProfile from "../components/UserProfile/UserProfile";
+import ChatUser from "../components/ChatUser/ChatUser";
+import Setting from "../components/Setting";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import {
   Layout,
   Avatar,
@@ -22,16 +27,23 @@ import {
   DeleteOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import UserProfile from "../components/UserProfile/UserProfile";
+
 const { Title } = Typography;
 
 export default function Dashboard() {
+  const location = useLocation();
   return (
     <>
       <Layout>
         <div className="main-body">
           <Navbar />
-          <div className="sidebar"></div>
+          <div className="sidebar">
+            {location.state === "profile" ? <UserProfile /> : null}
+            {location.state === "chat" ? <ChatUser /> : null}
+            {location.state === "contact" ? <Contact /> : null}
+            {location.state === "setting" ? <Setting /> : null}
+            {location.state === "bookmark" ? <Bookmark /> : null}
+          </div>
           <Content>
             <div className="chat-section">
               <div className="chat-header">

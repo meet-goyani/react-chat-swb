@@ -15,7 +15,6 @@ import UserProfile from "./components/UserProfile/UserProfile";
 function App() {
   return (
     <>
-      {/* <Dashboard /> */}
       <Routes>
         <Route path="/" element={<SignIn />} />
         <Route path="/signin" element={<SignIn />} />
@@ -23,7 +22,13 @@ function App() {
         <Route path="forgotpassword" element={<ForgotPassword />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/otpverification" element={<Otpverification />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="dashboard" element={<Dashboard />}>
+          <Route path="profile" element={<UserProfile />} />
+          <Route path="chat" element={<ChatUser />} />
+          <Route path="bookmark" element={<Bookmark />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="setting" element={<Setting />} />
+        </Route>
       </Routes>
     </>
   );

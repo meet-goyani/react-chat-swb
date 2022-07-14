@@ -1,12 +1,25 @@
 import React from "react";
 import image from "../../assets/images/SignUp.jpg";
-import {Card,Row, Col,Form, Input,Button,Typography,Divider,InputNumber} from "antd";
+import {Card,Row,Col,Form,Input,Button,Typography,Divider,InputNumber} from "antd";
 import { GoogleSquareFilled, FacebookOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ad } from "../../firebase";
+import { addDoc, collection } from "firebase/firestore";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const docRef = collection(ad, "user");
   const { Title, Text } = Typography;
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
+    navigate("/signin");
+    await addDoc(docRef, {
+      Name: values.Name,
+      Email: values.Email,
+      PhoneNumber: values.PhoneNumber,
+      Password: values.Password,
+      ConfirmPassword: values.ConfirmPassword,
+    });
+
     console.log("Success:", values);
   };
   const onFinishFailed = (errorInfo) => {
@@ -95,7 +108,7 @@ const SignUp = () => {
                 </Form.Item>
                 <Form.Item
                   label="Phone Number"
-                  name="Phone Number"
+                  name="PhoneNumber"
                   style={{ fontWeight: "bold", marginBottom: "5px" }}
                   layout="vertical"
                   rules={[
@@ -137,8 +150,8 @@ const SignUp = () => {
                   <Col span={12}>
                     <Form.Item
                       className="password"
-                      label="Confirm Password"
-                      name="Confirm Password"
+                      label="ConfirmPassword"
+                      name="ConfirmPassword"
                       style={{ fontWeight: "bold" }}
                       dependencies={["Password"]}
                       hasFeedback

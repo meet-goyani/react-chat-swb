@@ -14,6 +14,7 @@ import {
 import NavButton from "./NavButton";
 import { Link } from "react-router-dom";
 
+
 const { Text } = Typography;
 
 export default function Navbar() {
@@ -22,7 +23,7 @@ export default function Navbar() {
       <div className="navbar">
         <Avatar size={45} src={logo} />
         <div className="nav-btn">
-          <Link to="/dashboard/profile">
+          <Link to="profile" state="profile">
             <Tooltip placement="right" title="">
               <Button
                 size="large"
@@ -36,13 +37,13 @@ export default function Navbar() {
               />
             </Tooltip>
           </Link>
-          <Link to="/dashboard/chat">
+          <Link to="chat" state="chat">
             <Tooltip placement="right" title="">
               <Button
                 size="large"
                 className={"btn"}
                 icon={
-                  <UserOutlined
+                  <WechatOutlined
                     style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
                   />
                 }
@@ -50,13 +51,13 @@ export default function Navbar() {
               />
             </Tooltip>
           </Link>
-          <Link to="/dashboard/contact">
+          <Link to="contact" state="contact">
             <Tooltip placement="right" title="">
               <Button
                 size="large"
                 className={"btn"}
                 icon={
-                  <UserOutlined
+                  <ContactsOutlined
                     style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
                   />
                 }
@@ -64,13 +65,13 @@ export default function Navbar() {
               />
             </Tooltip>
           </Link>
-          <Link to="/dashboard/bookmark">
+          <Link to="setting" state="setting">
             <Tooltip placement="right" title="">
               <Button
                 size="large"
                 className={"btn"}
                 icon={
-                  <UserOutlined
+                  <SettingOutlined
                     style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
                   />
                 }
@@ -78,13 +79,13 @@ export default function Navbar() {
               />
             </Tooltip>
           </Link>
-          <Link to="/dashboard/setting">
+          <Link to="bookmark" state="bookmark">
             <Tooltip placement="right" title="">
               <Button
                 size="large"
                 className={"btn"}
                 icon={
-                  <UserOutlined
+                  <BookOutlined
                     style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
                   />
                 }
@@ -92,51 +93,6 @@ export default function Navbar() {
               />
             </Tooltip>
           </Link>
-          {/* <NavButton
-            icon={
-              <UserOutlined
-                style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
-              />
-            }
-            to="/dashboard/profile"
-            title="/dashboard/profile"
-          />
-          <NavButton
-            icon={
-              <WechatOutlined
-                style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
-              />
-            }
-            to="/dashboard/chat"
-            title="Chat"
-          />
-          <NavButton
-            icon={
-              <ContactsOutlined
-                style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
-              />
-            }
-            to="/dashboard/contact"
-            title="Contact"
-          />
-          <NavButton
-            icon={
-              <BookOutlined
-                style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
-              />
-            }
-            to="/dashboard/bookmark"
-            title="Bookmark"
-          />
-          <NavButton
-            icon={
-              <SettingOutlined
-                style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
-              />
-            }
-            to="/dashboard/setting"
-            title="Setting"
-          /> */}
         </div>
         <Popover
           trigger="click"

@@ -1,11 +1,19 @@
 import React from "react";
 import { Card, Row, Col, Form, Input, Button, Typography } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import image from "../../assets/images/forgotPassword.png";
 import { ArrowLeftOutlined, MailTwoTone } from "@ant-design/icons";
 
 const ForgotPassword = () => {
+  const navigate = useNavigate();
   const { Title, Text } = Typography;
+  navigate('/resetpassword');
+
+  // const reset = (values) => {
+  //   navigate("/resetpassword");
+  //   console.log("Success:", values);
+  // };
+
   return (
     <div>
       <Card
@@ -76,6 +84,7 @@ const ForgotPassword = () => {
 
                 <Form.Item>
                   <Button
+                    // onClick={reset}
                     size="large"
                     htmlType="submit"
                     style={{
@@ -86,7 +95,7 @@ const ForgotPassword = () => {
                       color: "white",
                     }}
                   >
-                    <Link to="/resetpassword">Reset Password</Link>
+                    Reset Password
                   </Button>
                 </Form.Item>
 
