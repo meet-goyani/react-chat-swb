@@ -26,7 +26,7 @@ export default function Navbar() {
                 style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
               />
             }
-            to="/profile"
+            to="/dashboard/profile"
             title="Profile"
           />
           <NavButton
@@ -35,7 +35,7 @@ export default function Navbar() {
                 style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
               />
             }
-            to="/"
+            to="/dashboard"
             title="Chat"
           />
           <NavButton
@@ -44,7 +44,7 @@ export default function Navbar() {
                 style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
               />
             }
-            to="/contact"
+            to="/dashboard/contact"
             title="Contact"
           />
           <NavButton
@@ -53,7 +53,7 @@ export default function Navbar() {
                 style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
               />
             }
-            to="/bookmark"
+            to="/dashboard/bookmark"
             title="Bookmark"
           />
           <NavButton
@@ -62,7 +62,7 @@ export default function Navbar() {
                 style={{ fontSize: "20px", color: "rgb(225, 225, 225)" }}
               />
             }
-            to="/setting"
+            to="/dashboard/setting"
             title="Setting"
           />
         </div>

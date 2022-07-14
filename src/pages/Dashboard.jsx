@@ -9,7 +9,7 @@ import Setting from "../components/Setting";
 import UserProfile from "../components/UserProfile/UserProfile";
 import "./dashboard.css";
 import Message from "../components/message/Message";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import {
   Layout,
   Avatar,
@@ -33,117 +33,113 @@ export default function Dashboard() {
   return (
     <>
       <Layout>
-        <BrowserRouter>
-          <div className="main-body">
-            <Navbar />
-            <div className="sidebar">
-              <Routes>
-                <Route path="/profile" element={<UserProfile />} />
-                <Route path="/" element={<ChatUser />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/bookmark" element={<Bookmark />} />
-                <Route path="/setting" element={<Setting />} />
-              </Routes>
-            </div>
-            <Content>
-              <div className="chat-section">
-                <div className="chat-header">
-                  <div className="header-left">
-                    <Avatar size={50} src={userImg2} />
-                    <Title style={{ marginLeft: "10px" }} level={5}>
-                      Mark
-                    </Title>
-                  </div>
-                  <div className="header-right">
-                    <Dropdown
-                      overlay={
-                        <Menu
-                          items={[
-                            {
-                              label: (
-                                <>
-                                  <div
-                                    style={{
-                                      display: "flex",
-                                      alignItems: "center",
-                                      fontSize: "14px",
-                                    }}
-                                  >
-                                    <UserOutlined
-                                      style={{ fontSize: "14px" }}
-                                    />
-                                    <a target="_blank">Profile</a>
-                                  </div>
-                                </>
-                              ),
-                            },
-                            {
-                              label: (
-                                <>
-                                  <div
-                                    style={{
-                                      display: "flex",
-                                      alignItems: "center",
-                                      fontSize: "14px",
-                                    }}
-                                  >
-                                    <DeleteOutlined
-                                      style={{ fontSize: "14px" }}
-                                    />
-                                    <a target="_blank">Delete</a>
-                                  </div>
-                                </>
-                              ),
-                            },
-                          ]}
-                        />
-                      }
-                      placement="bottom"
-                    >
-                      <Button type="primary" ghost>
-                        <MoreOutlined style={{ fontSize: "15px" }} />
-                      </Button>
-                    </Dropdown>
-                  </div>
+        <div className="main-body">
+          <Navbar />
+          <div className="sidebar">
+            <Routes>
+              <Route path="/dashboard/profile" element={<UserProfile />} />
+              <Route index path="/dashboard" element={<ChatUser />} />
+              <Route path="/dashboard/contact" element={<Contact />} />
+              <Route path="/dashboard/bookmark" element={<Bookmark />} />
+              <Route path="/dashboard/setting" element={<Setting />} />
+            </Routes>
+          </div>
+          <Content>
+            <div className="chat-section">
+              <div className="chat-header">
+                <div className="header-left">
+                  <Avatar size={50} src={userImg2} />
+                  <Title style={{ marginLeft: "10px" }} level={5}>
+                    Mark
+                  </Title>
                 </div>
-                <div className="message-section">
-                  <Message />
-                  <Message own={true} />
-                  <Message />
-                  <Message own={true} />
-                  <Message />
-                  <Message own={true} />
-                  <Message />
-                  <Message own={true} />
-                </div>
-                <div className="chat-footer">
-                  <Form
-                    layout="inline"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-around",
-                    }}
+                <div className="header-right">
+                  <Dropdown
+                    overlay={
+                      <Menu
+                        items={[
+                          {
+                            label: (
+                              <>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    fontSize: "14px",
+                                  }}
+                                >
+                                  <UserOutlined style={{ fontSize: "14px" }} />
+                                  <a target="_blank">Profile</a>
+                                </div>
+                              </>
+                            ),
+                          },
+                          {
+                            label: (
+                              <>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    fontSize: "14px",
+                                  }}
+                                >
+                                  <DeleteOutlined
+                                    style={{ fontSize: "14px" }}
+                                  />
+                                  <a target="_blank">Delete</a>
+                                </div>
+                              </>
+                            ),
+                          },
+                        ]}
+                      />
+                    }
+                    placement="bottom"
                   >
-                    <Form.Item style={{ width: "5%" }}>
-                      <Button type="primary" ghost>
-                        <SmileOutlined style={{ fontSize: "20px" }} />
-                      </Button>
-                    </Form.Item>
-                    <Form.Item style={{ width: "80%" }}>
-                      <Input placeholder="Type your message.." />
-                    </Form.Item>
-                    <Form.Item style={{ width: "5%" }}>
-                      <Button type="primary">
-                        <SendOutlined style={{ fontSize: "20px" }} />
-                      </Button>
-                    </Form.Item>
-                  </Form>
+                    <Button type="primary" ghost>
+                      <MoreOutlined style={{ fontSize: "15px" }} />
+                    </Button>
+                  </Dropdown>
                 </div>
               </div>
-            </Content>
-          </div>
-        </BrowserRouter>
+              <div className="message-section">
+                <Message />
+                <Message own={true} />
+                <Message />
+                <Message own={true} />
+                <Message />
+                <Message own={true} />
+                <Message />
+                <Message own={true} />
+              </div>
+              <div className="chat-footer">
+                <Form
+                  layout="inline"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-around",
+                  }}
+                >
+                  <Form.Item style={{ width: "5%" }}>
+                    <Button type="primary" ghost>
+                      <SmileOutlined style={{ fontSize: "20px" }} />
+                    </Button>
+                  </Form.Item>
+                  <Form.Item style={{ width: "80%" }}>
+                    <Input placeholder="Type your message.." />
+                  </Form.Item>
+                  <Form.Item style={{ width: "5%" }}>
+                    <Button type="primary">
+                      <SendOutlined style={{ fontSize: "20px" }} />
+                    </Button>
+                  </Form.Item>
+                </Form>
+              </div>
+            </div>
+          </Content>
+        </div>
       </Layout>
     </>
   );

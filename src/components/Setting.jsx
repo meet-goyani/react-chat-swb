@@ -103,7 +103,7 @@ export default function Setting() {
           <div className="user-about">
             <Title level={5}>About Me</Title>
             <Text>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
+              Lorem Ipsum is simply dummy text of the pri nting and typesetting
               industry.
             </Text>
             <div className="user-info">
