@@ -1,0 +1,20 @@
+.user-img {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+.mobile,
+.location,
+.email {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+.user-info {
+  margin: 15px 0;
+}
+.ant-image-mask {
+  border-radius: 50% !important;
+}
