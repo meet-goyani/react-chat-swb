@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const navigate = useNavigate();
-  
+
   const onFinish = async (values) => {
     console.log("Success:", values);
     const docRef = query(
@@ -27,13 +27,11 @@ const SignIn = () => {
       const details = docsSnap?.docs[0]?._document.data.value.mapValue.fields;
       localStorage.setItem("userdetails", JSON.stringify(details));
       navigate("/dashboard");
-      
     } else {
       alert("Please Sign Up First");
     }
   };
- 
-  
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -133,7 +131,7 @@ const SignIn = () => {
                     }}
                   >
                     Sign In
-                 </Button>
+                  </Button>
                   &nbsp;
                   <div style={{ textAlign: "center" }}>
                     <Link to="/forgotpassword">Forgot Password ?</Link>
@@ -163,7 +161,7 @@ const SignIn = () => {
                   <Button
                     type="primary"
                     size="large"
-                    style={{                                                  
+                    style={{
                       textAlign: "center",
                       borderRadius: "8px",
                       color: "white",

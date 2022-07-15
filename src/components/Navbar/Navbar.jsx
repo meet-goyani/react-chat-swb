@@ -11,13 +11,12 @@ import {
   BookOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
-import NavButton from "./NavButton";
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
 
 const { Text } = Typography;
 
-export default function Navbar() {
+function Navbar() {
   return (
     <>
       <div className="navbar">
@@ -37,7 +36,7 @@ export default function Navbar() {
               />
             </Tooltip>
           </Link>
-          <Link to="chat" state="chat">
+          <Link to="chat" state={"chat"}>
             <Tooltip placement="right" title="">
               <Button
                 size="large"
@@ -51,7 +50,7 @@ export default function Navbar() {
               />
             </Tooltip>
           </Link>
-          <Link to="contact" state="contact">
+          <Link to="contact" state={"contact"}>
             <Tooltip placement="right" title="">
               <Button
                 size="large"
@@ -116,3 +115,4 @@ export default function Navbar() {
     </>
   );
 }
+export default Navbar;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Content } from "antd/lib/layout/layout";
 import userImg2 from "../assets/images/user2.jpg";
 import Navbar from "../components/Navbar/Navbar";
@@ -9,7 +9,7 @@ import Contact from "../components/Contact/Contact";
 import UserProfile from "../components/UserProfile/UserProfile";
 import ChatUser from "../components/ChatUser/ChatUser";
 import Setting from "../components/Setting";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
   Layout,
   Avatar,
@@ -27,11 +27,13 @@ import {
   DeleteOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import { useEffect } from "react";
 
 const { Title } = Typography;
 
 export default function Dashboard() {
   const location = useLocation();
+
   return (
     <>
       <Layout>

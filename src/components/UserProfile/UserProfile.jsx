@@ -3,7 +3,7 @@ import "../../components/UserProfile/userprofile.css";
 import userImg from "../../assets/images/user1.jpg";
 import { Typography, Image, Skeleton } from "antd";
 import { HomeOutlined, MailOutlined, MobileOutlined } from "@ant-design/icons";
-import Dashboard from "../../pages/Dashboard";
+
 const { Title, Text } = Typography;
 export default function UserProfile() {
   const [loading, setLoading] = useState(false);
@@ -12,7 +12,7 @@ export default function UserProfile() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 500);
   }, []);
 
   return (
