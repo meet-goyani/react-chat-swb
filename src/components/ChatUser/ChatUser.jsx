@@ -9,7 +9,7 @@ import { PlusCircleOutlined, SearchOutlined } from "@ant-design/icons";
 import User from "./User";
 
 const { Title } = Typography;
-export default function ChatUser() {
+const ChatUser=()=> {
   return (
     <>
     
@@ -53,3 +53,4 @@ export default function ChatUser() {
     </>
   );
 }
+export default ChatUser;

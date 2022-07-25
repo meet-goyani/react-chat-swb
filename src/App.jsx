@@ -12,7 +12,7 @@ import ChatUser from "./components/ChatUser/ChatUser";
 import Setting from "./components/Setting";
 import UserProfile from "./components/UserProfile/UserProfile";
 
-function App() {
+const App=()=> {
   return (
     <>
       <Routes>

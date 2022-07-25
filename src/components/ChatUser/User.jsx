@@ -1,7 +1,7 @@
 import React from "react";
 import { Badge, Avatar, Typography, Divider } from "antd";
 const { Title } = Typography;
-export default function User({ userImg, userName }) {
+const User=({ userImg, userName })=> {
   return (
     <>
       <div className="user">
@@ -16,3 +16,4 @@ export default function User({ userImg, userName }) {
     </>
   );
 }
+export default User;

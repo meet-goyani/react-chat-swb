@@ -36,7 +36,7 @@
 /* Chat Section */
 .chat-section {
   height: 100vh;
-  background-image: url(../assets/images/back.svg);
+  background-image: url(../assets/images/chat.jpg);
   background-position: fixed;
   background-size: auto;
   display: flex;
@@ -55,13 +55,12 @@
   overflow: hidden;
 }
 .chat-footer {
-  padding: 15px 20px;
+  padding: 10px 20px;
   background: rgba(255, 255, 255, 0);
   /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(3px);
-  border-top: 2px solid rgba(190, 187, 187, 0.637);
-  overflow: hidden;
+  border-top: 2px solid rgba(223, 215, 215, 0.637);
 }
 .chat-header {
   display: flex;

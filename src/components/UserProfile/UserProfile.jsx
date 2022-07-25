@@ -5,7 +5,9 @@ import { Typography, Image, Skeleton } from "antd";
 import { HomeOutlined, MailOutlined, MobileOutlined } from "@ant-design/icons";
 
 const { Title, Text } = Typography;
-export default function UserProfile() {
+const UserProfile=()=> {
+  // let storageRef = storage.ref();
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -36,6 +38,7 @@ export default function UserProfile() {
               width={160}
               height={160}
             />
+
             <Title style={{ marginTop: "10px" }} level={4}>
               Diana Myhre
             </Title>
@@ -43,7 +46,7 @@ export default function UserProfile() {
 
           <Skeleton loading={loading} active>
             <div className="user-about">
-              <Title level={5}>About Me</Title>
+              <Title level={5}>&nbsp; About Me</Title>
               <Text>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
@@ -65,7 +68,7 @@ export default function UserProfile() {
                   <MailOutlined
                     style={{ fontSize: "18px", marginRight: "10px" }}
                   />
-                  <Title level={5}>example@gamil.com</Title>
+                  <Title level={5}>example@gmail.com</Title>
                 </div>
               </div>
             </div>
@@ -75,3 +78,4 @@ export default function UserProfile() {
     </>
   );
 }
+export default UserProfile;

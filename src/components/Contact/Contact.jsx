@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./contact.css";
-import userImg2 from "../../assets/images/user2.jpg";
+import userImg1 from "../../assets/images/user1.jpg";
 
 import {
   Typography,
@@ -21,7 +21,10 @@ import {
   DeleteOutlined,
 } from "@ant-design/icons";
 const { Title, Text } = Typography;
-export default function Chat() {
+
+function Chat() {
+  const userdetails = localStorage.getItem("userdetails");
+  const jsondetails = JSON.parse(userdetails)
   const [visible, setVisible] = useState(false);
 
   const confirm = () => {
@@ -52,9 +55,9 @@ export default function Chat() {
         <div className="contact-user">
           <a onClick={showDrawer} className="user-view">
             <div style={{ display: "flex", alignItems: "center" }}>
-              <Avatar size={45} src={userImg2} />
+              <Avatar size={45} src={userImg1} />
               <Title style={{ marginLeft: "10px" }} level={5}>
-                Mark
+             {jsondetails.Name.stringValue}
               </Title>
             </div>
             <MessageOutlined style={{ fontSize: "18px" }} />
@@ -77,12 +80,12 @@ export default function Chat() {
                     boxShadow: " 0px 0px 34px 12px  rgba(86,87,87,0.25)",
                     border: "4px solid rgba(77, 128, 209)",
                   }}
-                  src={userImg2}
+                  src={userImg1}
                   width={160}
                   height={160}
                 />
                 <Title style={{ marginTop: "10px" }} level={4}>
-                  Mark
+                {jsondetails.Name.stringValue}
                 </Title>
                 <div className="action">
                   <MessageOutlined
@@ -123,13 +126,13 @@ export default function Chat() {
                     <MobileOutlined
                       style={{ fontSize: "18px", marginRight: "10px" }}
                     />
-                    <Title level={5}>918052470</Title>
+                    <Title level={5}>{jsondetails.PhoneNumber.integerValue}</Title>
                   </div>
                   <div className="email">
                     <MailOutlined
                       style={{ fontSize: "18px", marginRight: "10px" }}
                     />
-                    <Title level={5}>example@gamil.com</Title>
+                    <Title level={5}>{jsondetails.Email.stringValue}</Title>
                   </div>
                 </div>
               </div>
@@ -140,3 +143,4 @@ export default function Chat() {
     </>
   );
 }
+export default Chat;

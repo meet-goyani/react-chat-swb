@@ -1,18 +1,55 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./UserProfile/userprofile.css";
 import userImg from "./../assets/images/user1.jpg";
 import { Typography, Button, Image, Tooltip, Modal, Input, Form } from "antd";
 import {
   EditOutlined,
   HomeOutlined,
-  MailOutlined,
-  MobileOutlined,
+  MailTwoTone ,
+  MobileTwoTone 
 } from "@ant-design/icons";
+import { storage } from "../firebase";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  listAll,
+  } from "firebase/storage";
+import "../../src/components/setting.css";
+
 
 const { Title, Text } = Typography;
-export default function Setting() {
+
+const Setting = () => {
+   const [visibleimg, setVisibleImg] = useState(false);
+  const [image, setImage] = useState(null);
+  const [imageUrls, setImageUrls] = useState([]);
+ const imagesListRef = ref(storage, "images/");
+  
+  const uploadImg = () => {
+    if (image == null) return;
+    const imageRef = ref(storage, `images/${image.name }`);
+    uploadBytes(imageRef, image).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageUrls(() => [url]);
+      });
+    });
+  }
+  const userdetails = localStorage.getItem("userdetails");
+  const jsondetails = JSON.parse(userdetails);
   const [visible, setVisible] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
+
+  useEffect(() => {
+    listAll(imagesListRef).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setImageUrls(() => [url]);
+          console.log(imagesListRef, "img")
+        });
+      });
+    });
+  }, []);
 
   const showModal = () => {
     setVisible(true);
@@ -62,6 +99,14 @@ export default function Setting() {
             </Button>,
           ]}
         >
+          <Input
+            type="file"
+            onChange={(event) => {
+              setImage(event.target.files[0]);
+            }}
+          />
+          <Button onClick={uploadImg}>Upload image</Button>
+
           <Form layout="vertical">
             <Form.Item label="Name:">
               <Input placeholder="Enter Name" />
@@ -82,22 +127,27 @@ export default function Setting() {
         </Modal>
         <div className="profile">
           <div className="user-img">
-            <Image
+            {/* <Image
               alt="avatar"
-              style={{
-                borderRadius: "50%",
-                objectFit: "cover",
-                WebkitBoxShadow: "0px 0px 34px 12px rgba(86,87,87,0.25)",
-                MozBoxShadow: "0px 0px 34px 12px  rgba(86,87,87,0.25)",
-                boxShadow: " 0px 0px 34px 12px  rgba(86,87,87,0.25)",
-                border: "4px solid rgba(77, 128, 209)",
-              }}
               src={userImg}
               width={160}
               height={160}
-            />
+              /> */}
+
+            {imageUrls.map((url) => {
+              return (
+                <Image
+                  preview={{
+                    visibleimg: false,
+                  }}
+                  onClick={() => setVisibleImg(true)}
+                  src={url}
+                  style={{ borderRadius: "60%", width: "70%", height: "30%" ,marginLeft:"35px"}}
+                />
+              );
+            })}
             <Title style={{ marginTop: "10px" }} level={4}>
-              Diana Myhre
+              {jsondetails.Name.stringValue}
             </Title>
           </div>
           <div className="user-about">
@@ -107,23 +157,16 @@ export default function Setting() {
               industry.
             </Text>
             <div className="user-info">
-              <div className="location">
-                <HomeOutlined
-                  style={{ fontSize: "18px", marginRight: "10px" }}
-                />
-                <Title level={5}>California, US</Title>
-              </div>
               <div className="mobile">
-                <MobileOutlined
+                <MobileTwoTone
                   style={{ fontSize: "18px", marginRight: "10px" }}
                 />
-                <Title level={5}>918052470</Title>
+                <Title level={5}>{jsondetails.PhoneNumber.integerValue}</Title>
               </div>
               <div className="email">
-                <MailOutlined
-                  style={{ fontSize: "18px", marginRight: "10px" }}
-                />
-                <Title level={5}>example@gamil.com</Title>
+                <MailTwoTone 
+                style={{ fontSize: "18px", marginRight: "10px" }}/>
+                <Title level={5}>{jsondetails.Email.stringValue}</Title>
               </div>
             </div>
           </div>
@@ -132,3 +175,4 @@ export default function Setting() {
     </>
   );
 }
+export default Setting;
