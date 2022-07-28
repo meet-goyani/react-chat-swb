@@ -9,6 +9,8 @@ const UserProfile=()=> {
   // let storageRef = storage.ref();
 
   const [loading, setLoading] = useState(false);
+   const userdetails = localStorage.getItem("userdetails");
+   const jsondetails = JSON.parse(userdetails);
 
   useEffect(() => {
     setLoading(true);
@@ -40,7 +42,7 @@ const UserProfile=()=> {
             />
 
             <Title style={{ marginTop: "10px" }} level={4}>
-              Diana Myhre
+              {jsondetails.Name.stringValue}
             </Title>
           </div>
 
@@ -52,23 +54,19 @@ const UserProfile=()=> {
                 industry.
               </Text>
               <div className="user-info">
-                <div className="location">
-                  <HomeOutlined
-                    style={{ fontSize: "18px", marginRight: "10px" }}
-                  />
-                  <Title level={5}>California, US</Title>
-                </div>
                 <div className="mobile">
                   <MobileOutlined
                     style={{ fontSize: "18px", marginRight: "10px" }}
                   />
-                  <Title level={5}>918052470</Title>
+                  <Title level={5}>
+                    {jsondetails.PhoneNumber.integerValue}
+                  </Title>
                 </div>
                 <div className="email">
                   <MailOutlined
                     style={{ fontSize: "18px", marginRight: "10px" }}
                   />
-                  <Title level={5}>example@gmail.com</Title>
+                  <Title level={5}>{jsondetails.Email.stringValue}</Title>
                 </div>
               </div>
             </div>

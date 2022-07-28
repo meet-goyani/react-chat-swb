@@ -10,7 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 const SignIn = () => {
   const navigate = useNavigate();
 
-  const onFinish = async (values) => {
+  const onSubmitHandler= async (values) => {
     console.log("Success:", values);
     const docRef = query(
       collection(ad, "user"),
@@ -68,7 +68,7 @@ const SignIn = () => {
                 name="basic"
                 style={{ margin: "50px" }}
                 layout="vertical"
-                onFinish={onFinish}
+                onFinish={onSubmitHandler}
                 onFinishFailed={onFinishFailed}
                 autoComplete="off"
                 initialValues={{

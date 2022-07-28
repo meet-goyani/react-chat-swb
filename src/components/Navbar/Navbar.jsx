@@ -43,7 +43,7 @@ function Navbar() {
               />
             </Tooltip>
           </Link>
-          {/* <Link to="profile" state="profile">
+          <Link to="profile" state="profile">
             <Tooltip placement="right" title="">
               <Button
                 size="large"
@@ -56,7 +56,7 @@ function Navbar() {
                 type="text"
               />
             </Tooltip>
-          </Link> */}
+          </Link>
          
           <Link to="contact" state="contact">
             <Tooltip placement="right" title="">
